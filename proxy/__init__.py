@@ -3,12 +3,9 @@ from requests import post
 import os
 
 
-SITE_ENV = os.environ.get('SITE_ENV', None)
-API_KEY = os.environ.get('API_KEY', None)
-if SITE_ENV == "testnet":
-    SITE_URL = f'https://starknet-goerli.infura.io/v3/{API_KEY}'
-elif SITE_ENV == "mainnet":
-    SITE_URL = f'https://starknet-mainnet.infura.io/v3/{API_KEY}'
+SITE_URL = os.environ.get('SITE_URL', None)
+if not SITE_URL:
+    raise Exception("'SITE_URL' env variable not specified")
 
 HTTP_METHODS = ['GET', 'HEAD', 'POST', 'PUT', 'DELETE', 'CONNECT', 'OPTIONS', 'TRACE', 'PATCH']
 HEADERS = {

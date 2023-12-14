@@ -16,7 +16,7 @@ HEADERS = {
 app = Flask(__name__)
 
 
-@app.route('/', methods=HTTP_METHODS)
+@app.route('/api/', methods=HTTP_METHODS)
 def proxy():
     return post(SITE_URL, json=request.json, headers=HEADERS).content
 

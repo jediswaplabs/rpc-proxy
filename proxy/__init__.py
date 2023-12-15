@@ -1,4 +1,5 @@
 from flask import Flask, request
+from flask_cors import CORS
 from requests import post
 import os
 
@@ -14,6 +15,7 @@ HEADERS = {
 }
 
 app = Flask(__name__)
+CORS(app)
 
 
 @app.route('/api/', methods=HTTP_METHODS)
